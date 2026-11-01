@@ -6,7 +6,7 @@
     "dev": "astro dev",
     "start": "astro dev --host",
     "build": "astro check && astro build",
-    "postbuild": "@powershell -NoProfile -ExecutionPolicy Unrestricted -Command ./scripts/move.ps1 && @powershell -NoProfile -ExecutionPolicy Unrestricted -Command ./scripts/bundle-lambo.ps1",
+    "postbuild": "@powershell -NoProfile -ExecutionPolicy Unrestricted -Command ./scripts/move.ps1",
     "preview": "astro build && astro preview",
     "astro": "astro"
   },
