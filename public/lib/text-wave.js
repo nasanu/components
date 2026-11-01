@@ -100,11 +100,15 @@ class TextWave extends HTMLElement {
     });
   }
 
+  //remove the bloom on a timer (the length of the .3s grow transition), not on
+  //transitionend: that never fires while the component is hidden (e.g. on a page
+  //not shown yet), which left every element stuck in its bloomed state
   addBloom = (item) => {
     item.classList.add("bloom");
-    item.addEventListener("transitionend", () => {
+    clearTimeout(item.bloomTimer);
+    item.bloomTimer = setTimeout(() => {
       item.classList.remove("bloom");
-    });
+    }, 300);
   };
 
   bloom = (waveLength, totalRows, apexRow, apexCol) => {
